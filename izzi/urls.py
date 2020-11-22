@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from izziapp.views import UsersListView, UserRegisterView, MyUploadView
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users_list/', UsersListView.as_view(), name='users-list'),
+    path('user_register/<str:date_register>', UserRegisterView.as_view(), name='user-date'),
+    path('upload/', MyUploadView.as_view(), name='upload')
 ]
